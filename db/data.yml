@@ -1,0 +1,30 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2024-01-19 14:46:55.698081000 Z
+    - 2024-01-19 14:46:55.698081000 Z
+  - - schema_sha1
+    - 90138f9ccee3ab75ce4a1180074cb5d91b7dc53c
+    - 2024-01-19 15:06:54.124973000 Z
+    - 2024-01-19 15:06:54.124973000 Z
+
+---
+books:
+  columns:
+  - id
+  - title
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Testing
+    - 2024-01-19 15:14:43.458937000 Z
+    - 2024-01-19 15:14:43.458937000 Z
