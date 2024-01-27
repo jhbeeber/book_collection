@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "main#index"
   
+  match "about", to: "main#about", via: :get
+  match "test", to: "main#test", via: :get
+
   get 'main/index'
   get 'categories/index'
   get 'categories/show'
