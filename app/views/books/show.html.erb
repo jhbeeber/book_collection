@@ -1,12 +1,42 @@
-<p style="color: green"><%= notice %></p>
+<%= link_to("Back to List of Books", books_path, class: 'back-link') %>
 
-<%= render @book %>
+<div class="books show">
+  <h2>Show book</h2>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+  <div class="actions">
+    <%= link_to('Edit', edit_book_path(@book)) %>
+    <%= link_to('Delete', delete_book_path(@book)) %>
+  </div>
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <table summary="Book detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @book.title %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @book.position %></td>
+    </tr>
+    <tr>
+      <th>Author</th>
+      <td><%= @book.author  %></td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><%= @book.price %></td>
+    </tr>
+    <tr>
+      <th>Published Date</th>
+      <td><%= @book.publishedDate %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @book.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @book.updated_at %></td>
+    </tr>
+  </table>
+
 </div>
-
-<%= link_to("Edit book", edit_book_path(1)) %>
