@@ -4,13 +4,19 @@ Rails.application.routes.draw do
   match "about", to: "main#about", via: :get
   match "test", to: "main#test", via: :get
 
-  get 'main/index'
-  get 'categories/index'
-  get 'categories/show'
-  get 'categories/new'
-  get 'categories/edit'
-  get 'categories/delete'
-  resources :books
+  get "main/index"
+  
+  resources :categories do
+    member do
+      get :delete
+    end
+  end
+
+  resources :books do
+    member do
+      get :delete
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
