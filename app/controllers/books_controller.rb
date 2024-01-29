@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   def new
     @count = Book.count
-    @book = Book.new
+    @book = Book.new(position: @count + 1)
   end
 
   def create
@@ -21,7 +21,8 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created"
       redirect_to books_path
     else
-      render("new")
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      redirect_to new_book_path
     end
   end
 
@@ -35,7 +36,8 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully updated"
       redirect_to book_path(@book)
     else
-      render("edit")
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      redirect_to edit_book_path
     end
   end
 

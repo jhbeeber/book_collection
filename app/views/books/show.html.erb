@@ -4,7 +4,7 @@
   <h2>Show book</h2>
 
   <div class="actions">
-    <%= link_to('Edit', edit_book_path(@book)) %>
+    <%= link_to('Update', edit_book_path(@book)) %>
     <%= link_to('Delete', delete_book_path(@book)) %>
   </div>
 
@@ -43,4 +43,8 @@
 
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
 <% end %>

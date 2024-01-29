@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root "main#index"
+  root "books#index"
   
   match "about", to: "main#about", via: :get
   match "test", to: "main#test", via: :get
 
-  get "main/index"
+  get "books/index"
   
   resources :categories do
     member do

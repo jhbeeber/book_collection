@@ -1,7 +1,5 @@
-<%= link_to('Home', {controller: 'main', action: 'index'}) %><br />
-
 <div class="books index">
-  <h2>Book</h2>
+  <h1>Book Collection</h1>
 
   <%= link_to("Add A New Book", new_book_path, class: 'action new') %>
 
@@ -23,8 +21,8 @@
       <td><%= book.publishedDate %></td>
       
       <td class="actions">
-        <%= link_to("Show", book_path(book), class: 'action show') %>
-        <%= link_to("Edit", edit_book_path(book), class: 'action edit') %>
+        <%= link_to("Details", book_path(book), class: 'action show') %>
+        <%= link_to("Update", edit_book_path(book), class: 'action edit') %>
         <%= link_to("Delete", delete_book_path(book), class: 'action delete') %>
       </td>
     </tr>
@@ -34,4 +32,8 @@
 
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
 <% end %>
