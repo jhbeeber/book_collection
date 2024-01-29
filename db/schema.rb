@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_27_210830) do
-  create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2024_01_29_051931) do
+  create_table "books", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "position"
     t.string "title"
     t.string "author"
     t.decimal "price", precision: 10, scale: 2
-    t.datetime "publishedDate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.datetime "publishedDate", precision: nil
+    t.datetime "created_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "updated_at", precision: nil, default: -> { "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" }
+    t.string "publisher"
+    t.integer "pages"
+    t.datetime "releaseDate"
   end
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
