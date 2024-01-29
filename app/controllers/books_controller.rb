@@ -21,7 +21,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created"
       redirect_to books_path
     else
-      flash[:alert] = @book.errors.full_messages.to_sentence
+      flash[:alert] = @book.errors.full_messages.join("<br>")
       redirect_to new_book_path
     end
   end
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully updated"
       redirect_to book_path(@book)
     else
-      flash[:alert] = @book.errors.full_messages.to_sentence
+      flash[:alert] = @book.errors.full_messages.join("<br>")
       redirect_to edit_book_path
     end
   end

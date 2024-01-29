@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
     belongs_to :category, optional: true
-    validates :title, presence: { message: " is required" }
+    validates :title, :author, :price, :publishedDate, presence: { message:" is required" }
 end
