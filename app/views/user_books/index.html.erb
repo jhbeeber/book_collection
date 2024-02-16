@@ -14,8 +14,8 @@
   <tbody>
     <% @user_books.each do |user_book| %>
       <tr>
-        <td><%= User.where(id: user_book.user_id).last.username %></td>
-        <td><%= Book.where(id: user_book.book_id).last.title %></td>
+        <td><%= User.find_by(id: user_book.user_id)&.username || "User not found" %></td>
+        <td><%= Book.find_by(id: user_book.book_id)&.title || "Book not found" %></td>
         <td><%= link_to "Show", user_book %></td>
         <td><%= link_to "Edit", edit_user_book_path(user_book) %></td>
         <td><%= link_to "Destroy", user_book, method: :delete, data: { confirm: "Are you sure?" } %></td>
@@ -35,5 +35,4 @@
 <br>
 
 <%= link_to "User index", users_path%>
-
 
