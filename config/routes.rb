@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "books#index"
+  resources :user_books
+  resources :users
+  root "user_books#index"
   
   match "about", to: "main#about", via: :get
   match "test", to: "main#test", via: :get
