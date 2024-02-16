@@ -84,7 +84,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: book_collection_production
-  username: test_app
-  password: <%= ENV["TEST_APP_DATABASE_PASSWORD"] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['JAWSDB_URL'] ? "#{ENV['JAWSDB_URL']}?adapter=mysql2" : '' %>
